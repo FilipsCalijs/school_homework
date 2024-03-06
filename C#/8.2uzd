@@ -1,0 +1,69 @@
+using System;
+
+class Product
+{
+    private string productName;
+    private decimal price;
+    private double weight;
+
+    public string ProductName
+    {
+        get { return productName; } // возращяет значение
+        set { productName = value; } // сэтит его
+    }
+    public decimal Price
+    {
+        get { return price; } //тоже самое
+        set { price = value; }
+    }
+    public double Weight
+    {
+        get { return weight; }
+        set { weight = value; }
+    }
+}
+
+class Buy : Product //это и есть наследование класса
+{
+    private int quantity;
+    private decimal totalCost;
+
+    public int Quantity
+    {
+        get { return quantity; }
+        set { quantity = value; }
+    }
+
+    public decimal TotalCost
+    {
+        get { return totalCost; }
+        set { totalCost = value; }
+    }
+}
+
+class Check : Buy
+{
+    public void DisplayPurchase()
+    {
+        Console.WriteLine($"Products: {ProductName}");
+        Console.WriteLine($"daudzums: {Quantity} ");
+        Console.WriteLine($"svārs: {Weight} kg");
+        Console.WriteLine($"Kopā: ${TotalCost}");
+    }
+}
+
+class MainClass
+{
+    public static void Main(string[] args)
+    {
+        // или можно инпут создать
+        Check purchase = new Check();
+        purchase.ProductName = "Example Product";
+        purchase.Quantity = 5;
+        purchase.Weight = 2.5;
+        purchase.TotalCost = 100.50m;
+
+        purchase.DisplayPurchase();
+    }
+}
+

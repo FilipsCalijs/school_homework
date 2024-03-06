@@ -1,0 +1,96 @@
+using System;
+
+class Book
+{
+    //обявление переменных
+    private string bookTitle;
+     private string authorName;
+     private decimal bookPrice;
+    public Book(string title, string author, decimal price)
+    {
+        bookTitle = title;
+        authorName = author;
+        bookPrice = price;
+    }
+
+    //изменения состояния
+    public string BookTitle
+    {
+        get { return bookTitle; }
+        set { bookTitle = value; }
+    }
+
+    public string AuthorName
+    {
+        get { return authorName; }
+        set { authorName = value; }
+    }
+
+    public decimal BookPrice
+    {
+        get { return bookPrice; }
+        set { bookPrice = value; }
+    }
+
+    public void Print()
+    {
+        Console.WriteLine($"Book Title: {BookTitle}");
+        Console.WriteLine($"Author: {AuthorName}");
+        Console.WriteLine($"Price: ${BookPrice}");
+    }
+}
+
+class BookGenre : Book
+{
+    private string genre;
+
+    public BookGenre(string title, string author, decimal price, string genre) : base(title, author, price)
+    {
+        this.genre = genre;
+    }
+
+    public string Genre
+    {
+        get { return genre; }
+        set { genre = value; }
+    }
+
+    public new void Print()
+    {
+        base.Print();
+        Console.WriteLine($"Genre: {Genre}");
+    }
+}
+
+sealed class BookGenrePubl : BookGenre //  Эта фича предоставляет возможность указать, что класс или структура может быть наследован(a) только из текущей сборки. 
+{
+    private string publisherInfo;
+
+    public BookGenrePubl(string title, string author, decimal price, string genre, string publisherInfo) 
+        : base(title, author, price, genre) // Ключевое слово используется для доступа к членам базового класса из производного класса. 
+    {
+        this.publisherInfo = publisherInfo;
+    }
+
+    public string PublisherInfo
+    {
+        get { return publisherInfo; }
+        set { publisherInfo = value; }
+    }
+
+    public new void Print()
+    {
+        base.Print();
+        Console.WriteLine($"Publisher Information: {PublisherInfo}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        BookGenrePubl book = new BookGenrePubl("Dead Souls", "Nikolai Vasilyevich Gogo", 25.99m, "Roman", "MosBooks");
+        book.Print();
+    }
+}
+
