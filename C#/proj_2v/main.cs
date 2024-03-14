@@ -1,41 +1,64 @@
-// Main.cs
-
-//Класс - развлечение
-// Тема - Культура и отдых
-//Подклассы - Театр, Концерт
-// Имя, Фамилия - Филипп Чалый
-
-// "Наследование, полиморфизм и абстракция"
-
-// Цель работы: Укрепление навыков создания абстрактных классов, наследования и переопределения методов.
-
-// Задание:
-// 1. Провести анализ предметной области и определить свойства и методы объектов, принадлежащих указанным классам.
-// 2. В соответствии с данным вариантом создать абстрактный класс и два унаследованных класса.
-// 3. В абстрактном классе создать абстрактные и виртуальные методы, а также поля (количество абстрактных и виртуальных методов по необходимости, но не менее 2). - 2 балла.
-// 4. Для каждого неабстрактного класса:
-//   - Создать конструктор, заполняющий необходимые поля объекта из параметров. - 2 балла.
-//   - Разработать текстовое представление информации об экземпляре, переопределяя виртуальный метод. - 2 балла.
-//   - Переопределить объявленные в базовом классе абстрактные методы. (Текстовое представление будет оценено максимум в 7 баллов. Желательно предоставить реализацию каких-то действий.) - 3 балла.
-// 5. Использовать ссылку на объект. - 1 балл.
-// 6. Для проверки предоставить файлы Main.cs и izklaide.cs (2) в указанном месте.
 using System;
 
-class GalvenaKlase
+class MainClass
 {
     public static void Main(string[] args)
     {
-        // Izveidot apakšklases instancēs
-        Teatris teatrisInstance = new Teatris("Filips", "Čalijs", "Romeo un Džuljeta");
-        Koncerts koncertsInstance = new Koncerts("Filips", "Čalijs", "Rokgrupa");
+        bool isValidChoice = false;
+        string izvele = "";
 
-        // Parādīt informāciju, izmantojot pārdefinētās metodes
-        Console.WriteLine("Teātra informācija:");
-        teatrisInstance.AttelotTemu();
-        teatrisInstance.AttelotInformaciju();
+        while (!isValidChoice)
+        {
+            Console.WriteLine("Ko Jūs izvēlēsieties: teatris/koncerts? (exit)");
+            izvele = Console.ReadLine().ToLower();
 
-        Console.WriteLine("\nKoncerta informācija:");
-        koncertsInstance.AttelotTemu();
-        koncertsInstance.AttelotInformaciju();
+            if (izvele == "teatris" || izvele == "koncerts")
+            {
+                isValidChoice = true;
+            }
+            else if (izvele == "exit")
+            {
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Nepareiza izvēle!");
+            }
+        }
+
+        while (true)
+        {
+            if (izvele == "teatris")
+            {
+                Teatris teatrisInstance = new Teatris("John Doe", "Teātris", 100, 50, new DateTime(2024, 05, 09, 9, 15, 0), "Hamlets");
+                Console.WriteLine("Teātra informācija:");
+                teatrisInstance.AttelotTemu();
+                teatrisInstance.AttelotInformaciju();
+                teatrisInstance.AttelotLaiku();
+                teatrisInstance.AttelotSakumaLaiku();
+            }
+            else if (izvele == "koncerts")
+            {
+                Koncerts koncertsInstance = new Koncerts("Rock Band", "Rock", 500, 300, new DateTime(2025, 07, 03, 21, 15, 0), "Metallica");
+                Console.WriteLine("\nKoncerta informācija:");
+                koncertsInstance.AttelotTemu();
+                koncertsInstance.AttelotInformaciju();
+                koncertsInstance.AttelotLaiku();
+                koncertsInstance.AttelotSakumaLaiku();
+            }
+
+            Console.WriteLine("Vai vēlaties skatīties brošūru vēlreiz? (ja/exit)");
+            string atbilde = Console.ReadLine().ToLower();
+
+            if (atbilde == "exit")
+            {
+                return;
+            }
+            else if (atbilde != "ja")
+            {
+                Console.WriteLine("Nepareiza atbilde!");
+                return;
+            }
+        }
     }
 }
