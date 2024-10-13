@@ -1,4 +1,3 @@
-/* Основные стили */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,7 +17,6 @@ body {
     background: linear-gradient(90deg, violet, blue);
 }
 
-/* Навигационная панель */
 .navbar {
     width: 100%;
     background: linear-gradient(90deg, #ff8a00, #e52e71);
@@ -84,7 +82,6 @@ body {
     border-radius: 5px;
 }
 
-/* Карточки */
 .container {
     display: flex;
     justify-content: center;
@@ -171,7 +168,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Модальные окна */
 .modal {
     display: none;
     position: fixed;
@@ -201,33 +197,29 @@ body {
     cursor: pointer;
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
     .nav-list {
-        display: none;
         flex-direction: column;
         align-items: center;
         width: 100%;
         background: linear-gradient(90deg, #ff8a00, #e52e71);
     }
-
+    .navbar {
+        padding: 0;
+    }
     .nav-list li {
         margin: 10px 0;
     }
-
     .hamburger {
         display: block;
         font-size: 1.5rem;
         cursor: pointer;
     }
-
     .hamburger.active + .nav-list {
         display: flex;
     }
 }
 
-
-/* Обычный режим */
 body {
     background-color: white;
     color: black;
@@ -237,12 +229,266 @@ nav {
     background-color: lightgray;
 }
 
-/* Темный режим */
-body.dark-mode {
-    background-color: black;
+.dark-mode {
+    background: linear-gradient(90deg, black, #616161);
     color: white;
 }
 
-nav.dark-mode {
-    background-color: gray;
+.dark-mode .card-front, 
+.dark-mode .card-back {
+    background-color: #d3d3d3;
+    color: black;
+}
+
+.dark-mode .card h3, 
+.dark-mode .card p {
+    color: black;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    list-style: none;
+}
+
+.dropdown-content li {
+    margin-bottom: 10px;
+}
+
+.dropdown-content li a {
+    color: #333;
+    padding: 5px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content li a:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    animation: zoomIn 0.5s forwards;
+}
+
+.card-front {
+    background: linear-gradient(to bottom right, blue, violet);
+    transform: rotateY(180deg);
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #e52e71, #ff8a00);
+    transform: scale(1.05);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+.hamburger.active + .nav-list {
+    display: flex;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: linear-gradient(90deg, #ff8a00, #e52e71);
+    }
+    
+    .nav-list li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    .hamburger {
+        display: block;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+}
+
+.hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    margin-left: auto;
+}
+
+.nav-list.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+}
+
+.nav-list li {
+    padding: 15px 0;
+    text-align: center;
+}
+
+.hamburger.open .fa-bars {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        background-color: #000;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 2rem;
+        color: white;
+    }
+}
+
+@media (min-width: 771px) {
+    #hamburger {
+        display: none;
+    }
+
+    .nav-list {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+@keyframes zoom-in {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.card-inner:hover .card-front img {
+    animation: zoom-in 0.3s forwards;
+}
+
+.modal-content {
+    animation: fade-in 0.5s forwards;
+}
+
+@media (max-width: 770px) {
+    .nav-list {
+        display: none;
+    }
+
+    #hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-list.active {
+        display: block;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        text-align: center;
+    }
+
+    .nav-list li {
+        margin: 20px 0;
+    }
+}
+
+@media (min-width: 771px) {
+    #hamburger {
+        display: none;
+    }
+
+    .nav-list {
+        display: flex;
+        justify-content: flex-end;
+    }
 }
