@@ -10,4 +10,4 @@ In this repository, you will find my best work completed for various subjects an
 
 
 ## db projects
-без понятие как делать
+не знаю почему, но все данные сохранаются в другой папке
