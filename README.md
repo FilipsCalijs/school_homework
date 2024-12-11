@@ -11,3 +11,5 @@ In this repository, you will find my best work completed for various subjects an
 
 ## db projects
 не знаю почему, но все данные сохранаются в другой папке
+
+ВАЖНОЕ, ВСЕ РАБОТЫ ПОЧЕМУ ТО СОХРАНАЮТСЯ В ДРУГОЙ ПАПКЕ UNITY GAMES
