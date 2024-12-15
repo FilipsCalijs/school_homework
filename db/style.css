@@ -1,54 +1,79 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
+        /* Общие стили */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
-/* Навигационная панель */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(to right, #4CAF50, #2E7D32);
-    padding: 10px 20px;
-    color: white;
-}
+        /* Навигационная панель */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #4CAF50, #2E7D32);
+            padding: 10px 20px;
+            color: white;
+        }
 
-/* Левая часть панели */
-.navbar-left {
-    display: flex;
-    align-items: center;
-}
+        /* Левая часть панели */
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
 
-.logo-subtitle {
-    font-size: 14px;
-    margin-left: 10px;
-}
+        .logo-subtitle {
+            font-size: 14px;
+            margin-left: 10px;
+        }
 
-/* Правая часть панели */
-.navbar-right {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
+        /* Правая часть панели */
+        .navbar-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
 
-.nav-link {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-}
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
 
-.nav-link:hover {
-    text-decoration: underline;
-}
+        .nav-link:hover {
+            text-decoration: underline;
+        }
 
-.language {
-    font-weight: bold;
-}
+        .language {
+            font-weight: bold;
+        }
+
+        /* Стили для списка */
+        .list {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .list-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        li {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+    

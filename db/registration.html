@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="registration.css">
+
+</head>
+<body>
+    <div class="registration-container">
+        <h2>Регистрация</h2>
+        <input type="text" id="firstName" placeholder="Имя">
+        <input type="text" id="lastName" placeholder="Фамилия">
+        <button onclick="registerUser()">Продолжить</button>
+        <a href="index.html" class="continue-anonymous">Продолжить анонимно</a>
+    </div>
+
+    <script>
+        function registerUser() {
+            // Получаем значения из полей ввода
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+
+            // Сохраняем данные в localStorage
+            if (firstName && lastName) {
+                localStorage.setItem('userFirstName', firstName);
+                localStorage.setItem('userLastName', lastName);
+                // Перенаправляем на главную страницу
+                window.location.href = "index.html";
+            } else {
+                alert("Пожалуйста, заполните оба поля!");
+            }
+        }
+    </script>
+</body>
+</html>
