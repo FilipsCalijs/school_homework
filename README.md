@@ -1,7 +1,7 @@
 # Best Homework from RVT
 
 
-just for push, couse i am in Tenerife and i have a holidays, let me relax!!!!
+
 This repository is created to showcase my best and most interesting homework assignments from RVT (the technical college where I study).
 
 ## Description
