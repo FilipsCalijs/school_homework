@@ -1,7 +1,6 @@
 # Best Homework from RVT
 
 
-
 This repository is created to showcase my best and most interesting homework assignments from RVT (the technical college where I study).
 
 ## Description
